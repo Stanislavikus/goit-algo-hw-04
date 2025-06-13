@@ -1,0 +1,15 @@
+import random
+import timeit
+
+arr_small = random.sample(range(1000), 100)       # малі дані
+arr_medium = random.sample(range(100000), 10000)  # середні дані
+arr_large = random.sample(range(1000000), 100000) # великі дані
+
+# Обгортки
+def test_insertion(): insertion_sort(arr_small)
+def test_merge(): merge_sort(arr_small)
+def test_sorted(): sorted(arr_small)
+
+print("⏱ Insertion:", timeit.timeit(test_insertion, number=10))
+print("⏱ Merge:    ", timeit.timeit(test_merge, number=10))
+print("⏱ Timsort:  ", timeit.timeit(test_sorted, number=10))
